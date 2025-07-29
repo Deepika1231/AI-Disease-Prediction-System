@@ -1,0 +1,6 @@
+fever,cough,fatigue,headache,diagnosis
+1,1,0,1,Flu
+0,1,1,0,Cold
+1,0,1,1,Malaria
+1,1,1,0,Flu
+0,0,0,0,Healthy
