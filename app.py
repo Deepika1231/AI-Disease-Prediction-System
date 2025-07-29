@@ -1,22 +1,24 @@
 
 import streamlit as st
-import pandas as pd
-import pickle
+import joblib
+import numpy as np
 
-st.title("AI-Based Disease Prediction System")
-st.write("Select the symptoms below to predict the disease.")
+# Load model and label encoder
+model = joblib.load("model.pkl")
+label_encoder = joblib.load("label_encoder.pkl")
 
-# Load the model
-with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
+st.title("🧠 AI Disease Prediction System")
+st.markdown("Enter your symptoms below to predict the possible disease.")
 
-# Input
+# Input widgets
 fever = st.checkbox("Fever")
 cough = st.checkbox("Cough")
 fatigue = st.checkbox("Fatigue")
 headache = st.checkbox("Headache")
+nausea = st.checkbox("Nausea")
 
 if st.button("Predict"):
-    features = [[int(fever), int(cough), int(fatigue), int(headache)]]
-    prediction = model.predict(features)
-    st.success(f"Predicted Disease: {prediction[0]}")
+    input_data = np.array([[fever, cough, fatigue, headache, nausea]], dtype=int)
+    prediction = model.predict(input_data)[0]
+    disease = label_encoder.inverse_transform([prediction])[0]
+    st.success(f"🩺 Predicted Disease: **{disease}**")
