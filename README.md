@@ -1,7 +1,14 @@
-# Disease Prediction System (Educational Symptom Matcher)
+# Disease Prediction System
 
-A simple Python and Streamlit project that compares user-selected symptoms with a small, transparent example knowledge base and displays the closest symptom overlaps.
+🚀 **Live Demo:** https://ai-disease-prediction-system-2imjkyyasxbfwkbkpxjaaf.streamlit.app/
 
+An AI-based educational disease prediction application that analyses selected symptoms and displays possible symptom matches.
+
+## Technologies Used
+- Python
+- Streamlit
+- Pandas
+- Machine Learning concepts
 ## Features
 - Select multiple symptoms
 - Compare selected symptoms with example condition profiles
